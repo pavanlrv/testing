@@ -6,3 +6,7 @@
     - name: Lookup variable in Conjur
       debug:
         msg: "{{ lookup('cyberark.conjur.conjur_variable', 'data/vault/IF_Safe_Pavan/safe/address', validate_certs=False) }}"
+
+    - name: Lookup variable in Conjur
+      debug:
+        msg: "{{ lookup('cyberark.conjur.conjur_variable', 'data/vault/IF_Safe_Pavan/safe/username', validate_certs=False) }}"
