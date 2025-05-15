@@ -1,0 +1,11 @@
+---
+- name: Configuring conjur identity on remote hosts
+  hosts: localhost
+  roles:
+    - role: "cyberark.conjur.conjur_host_identity"
+      conjur_account: "conjur"
+      conjur_appliance_url: "https://conjurcloudint.secretsmgr.cyberark.cloud/api"
+      conjur_host_factory_token: "28320622xxywpd33tvzz92dj9meq6h31361gvc3p51c5zrzj3e4cxha"
+      conjur_host_name: "conjur_testing"
+      conjur_ssl_certificate: "{{lookup('file', 'cert.pem')}}"
+      conjur_validate_certs: yes
