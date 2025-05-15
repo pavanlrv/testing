@@ -5,4 +5,4 @@
   tasks:
     - name: Lookup variable in Conjur
       debug:
-        msg: "{{ lookup('cyberark.conjur.conjur_variable', 'data/vault/IF_Safe_Pavan/safe/address') }}"
+        msg: "{{ lookup('cyberark.conjur.conjur_variable', 'data/vault/IF_Safe_Pavan/safe/address', validate_certs=False) }}"
