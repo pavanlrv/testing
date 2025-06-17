@@ -34,6 +34,7 @@ jobs:
         continue-on-error: true
       - name: testing
         run: |
+          docker ps
           IMAGE=$(docker images --format "{{.Repository}}:{{.Tag}}" | head -n 1)
           IMAGE_NAME=$(echo $IMAGE | cut -d: -f1)
           IMAGE_TAG=$(echo $IMAGE | cut -d: -f2)
