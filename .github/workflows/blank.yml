@@ -31,3 +31,7 @@ jobs:
           host_id: workflow
           api_key: testing
           secrets: data/testing
+        continue-on-error: true
+      - name: testing
+        run: docker images
+        
