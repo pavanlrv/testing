@@ -33,5 +33,10 @@ jobs:
           secrets: data/testing
         continue-on-error: true
       - name: testing
-        run: docker images
+        run: |
+          IMAGE=$(docker images --format "{{.Repository}}:{{.Tag}}" | head -n 1)
+          IMAGE_NAME=$(echo $IMAGE | cut -d: -f1)
+          IMAGE_TAG=$(echo $IMAGE | cut -d: -f2)
+          docker run -it $IMAGE_NAME:$IMAGE_TAG bash -c "pwd"
+
         
