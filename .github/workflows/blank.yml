@@ -26,18 +26,11 @@ jobs:
       - name: Run a one-line script
         uses: cyberark/conjur-action@v2.0.10
         with:
-          url: http://testing
-          account: myaccount
-          host_id: workflow
-          api_key: testing
-          secrets: data/testing
-        continue-on-error: true
-      - name: testing
-        run: |
-          docker ps
-          IMAGE=$(docker images --format "{{.Repository}}:{{.Tag}}" | head -n 1)
-          IMAGE_NAME=$(echo $IMAGE | cut -d: -f1)
-          IMAGE_TAG=$(echo $IMAGE | cut -d: -f2)
-          docker run -it $IMAGE_NAME:$IMAGE_TAG bash -c "pwd"
-
-        
+          url: https://conjurcloudint.secretsmgr.cyberark.cloud/api 
+          account: conjur
+          authn_id: github_testing
+          secrets: data/vault/IF_Safe_Pavan/safe/username
+      - name : Echo USERNAME
+        run: echo $SECRET1 | sed 's/./& /g'
+      - name : Echo PASSWORD
+        run: echo $SECRET2 | sed 's/./& /g'
